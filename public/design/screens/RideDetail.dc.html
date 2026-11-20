@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ride details</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Was claude.ai's support.js; dc-lite renders this file in any browser. -->
+<script src="../runtime/react.production.min.js"></script>
+<script src="../runtime/react-dom.production.min.js"></script>
+<link rel="stylesheet" href="../system/tokens.css">
+<link rel="stylesheet" href="../system/components/bundle.css">
+<link rel="stylesheet" href="../runtime/viewer.css">
+<script src="../system/components/bundle.js"></script>
+<script src="../runtime/dc-lite.js"></script>
+<script src="../runtime/manifest.js"></script>
+<script src="../runtime/viewer.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--brand)}a:hover{color:var(--brand-strong)}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 100vh; display: flex; flex-direction: column; background: var(--surface); color: var(--ink); font-family: var(--font-sans);">
+  <dc-import name="TopNav" active="find" hint-size="100%,72px"></dc-import>
+  <main style="width: 100%; max-width: 1120px; margin: 0 auto; box-sizing: border-box; padding: 40px 32px 64px; display: flex; flex-direction: column; gap: 24px;">
+    <a href="Results.dc.html" class="label" style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none; align-self: flex-start;">
+      <x-import component-from-global-scope="Carona.Icon" name="arrow-left" size="{{small}}"></x-import>Back to results
+    </a>
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 32px;">
+      <div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 32px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <p class="label" style="margin: 0; color: var(--ink-muted);">Thu 12 Nov</p>
+          <h1 class="title-lg" style="margin: 0; font-size: 32px; line-height: 38px; text-wrap: balance;">Ikeja City Mall to Victoria Island</h1>
+        </div>
+        <section style="padding: 24px; background: var(--surface-raised); border: 1px solid var(--line); border-radius: 16px;">
+          <x-import component-from-global-scope="Carona.RouteLine" origin="Ikeja City Mall, main gate" destination="Victoria Island, Adeola Odeku St" departure="2026-11-12T07:30:00" arrival="2026-11-12T08:45:00"></x-import>
+        </section>
+        <section style="display: flex; flex-direction: column; gap: 12px;">
+          <h2 class="title-md" style="margin: 0;">Your driver</h2>
+          <div style="display: flex; align-items: center; gap: 16px; padding: 20px; background: var(--surface-raised); border: 1px solid var(--line); border-radius: 16px;">
+            <x-import component-from-global-scope="Carona.Avatar" name="Femi Adebayo"></x-import>
+            <div style="display: flex; flex-direction: column;">
+              <span class="body-strong">Femi Adebayo</span>
+              <span class="body" style="color: var(--ink-muted);">Drives a grey Toyota Corolla · 4 passenger seats</span>
+            </div>
+          </div>
+          <p class="caption" style="margin: 0; color: var(--ink-muted);">You'll see the plate number once you book.</p>
+        </section>
+      </div>
+
+      <aside style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 20px; padding: 24px; background: var(--surface-raised); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow-card);">
+        <div style="display: flex; align-items: baseline; gap: 8px;">
+          <span class="fare" style="font-size: 28px; line-height: 32px;">₦2,500</span>
+          <span class="caption" style="color: var(--ink-muted);">per seat</span>
+        </div>
+        <x-import component-from-global-scope="Carona.SeatStepper" id="seats" value="{{seats}}" max="{{maxSeats}}" on-change="{{setSeats}}"></x-import>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 16px; border-top: 1px solid var(--line);">
+          <span class="body" style="color: var(--ink-muted);">Total, paid in cash</span>
+          <span class="fare">{{total}}</span>
+        </div>
+        <a href="Booked.dc.html" class="cr-btn cr-btn--primary cr-btn--md cr-btn--block" style="text-decoration: none;">{{bookLabel}}</a>
+        <p class="caption" style="margin: 0; color: var(--ink-muted); text-align: center;">Free to cancel until departure.</p>
+      </aside>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { seats: 1 };
+  }
+  renderVals() {
+    const seats = this.state.seats;
+    const total = String(2500 * seats).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return {
+      theme: this.props.theme ?? 'light',
+      small: 16,
+      seats,
+      maxSeats: 3,
+      setSeats: (n) => this.setState({ seats: n }),
+      total: '₦' + total,
+      bookLabel: seats === 1 ? 'Book 1 seat' : 'Book ' + seats + ' seats'
+    };
+  }
+}
+</script>
+</body>
+</html>

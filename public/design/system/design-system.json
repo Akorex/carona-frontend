@@ -1,0 +1,22 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": { "v": 1, "at": "2026-11-10T12:00:00Z" },
+  "title": "Carona",
+  "namespace": "Carona",
+  "libraries": [
+    { "name": "react", "version": "18" },
+    { "name": "react-dom", "version": "18" }
+  ],
+  "sections": {},
+  "groups": [],
+  "assetGroups": {},
+  "blobs": {},
+  "docs": { "readme": "project/README.md", "sections": [] },
+  "lastChange": {
+    "by": "Akorede Adewole",
+    "at": "2026-11-10T14:00:00Z",
+    "via": "Claude Code",
+    "note": "Laptop-first: TopNav component, page layout tokens and rules, phone-only notes on AppBar and TabBar."
+  }
+}

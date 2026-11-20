@@ -1,0 +1,103 @@
+/* Carona tokens, copied from the design system (tokens.json). Do not edit by hand. */
+:root, [data-theme="light"] {
+  --surface: #f5f6f3;
+  --surface-raised: #ffffff;
+  --surface-sunken: #eceeea;
+  --line: #dde2dd;
+  --line-strong: #7f8a84;
+  --ink: #17201c;
+  --ink-muted: #55625c;
+  --brand: #0b6b58;
+  --brand-strong: #085444;
+  --on-brand: #ffffff;
+  --brand-soft: #dcefe8;
+  --marking: #f2b233;
+  --on-marking: #2a1d00;
+  --marking-ink: #835600;
+  --info: #2f5bb7;
+  --info-soft: #e6edfa;
+  --success: #1d7341;
+  --success-soft: #e2f3e8;
+  --warning: #835600;
+  --warning-soft: #fbf0d9;
+  --danger: #b42318;
+  --danger-soft: #fce8e6;
+  --on-danger: #ffffff;
+  --focus: #2f5bb7;
+  --scrim: rgba(15, 20, 18, 0.48);
+  --shadow-card: 0 1px 2px rgba(16, 24, 20, 0.06), 0 4px 12px rgba(16, 24, 20, 0.06);
+  --shadow-sheet: 0 -8px 24px rgba(16, 24, 20, 0.12);
+}
+[data-theme="dark"] {
+  --surface: #0f1412;
+  --surface-raised: #18201d;
+  --surface-sunken: #222b27;
+  --line: #2c3632;
+  --line-strong: #6e7b75;
+  --ink: #e7ede9;
+  --ink-muted: #a0ada6;
+  --brand: #4cc3a8;
+  --brand-strong: #7ad6c1;
+  --on-brand: #062a22;
+  --brand-soft: #173a31;
+  --marking: #f2b233;
+  --on-marking: #2a1d00;
+  --marking-ink: #f5c45e;
+  --info: #9ab7f5;
+  --info-soft: #1c2740;
+  --success: #74d39c;
+  --success-soft: #173222;
+  --warning: #f5c45e;
+  --warning-soft: #352a14;
+  --danger: #ff8f80;
+  --danger-soft: #3b1d1a;
+  --on-danger: #2b0a06;
+  --focus: #a9c3ff;
+  --scrim: rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-sheet: 0 -8px 24px rgba(0, 0, 0, 0.5);
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --tap-min: 48px;
+  --control-md: 48px;
+  --control-sm: 36px;
+  --topnav-h: 72px;
+  --content-max: 1120px;
+  --form-max: 640px;
+  --auth-max: 480px;
+  --aside-w: 340px;
+  --tabbar-h: 64px;
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-sans: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+.display-lg { font-family: var(--font-display); font-size: 56px; line-height: 60px; font-weight: 700; letter-spacing: -0.03em; }
+.display { font-family: var(--font-display); font-size: 48px; line-height: 52px; font-weight: 700; letter-spacing: -0.03em; }
+.page-title { font-family: var(--font-display); font-size: 32px; line-height: 38px; font-weight: 700; letter-spacing: -0.01em; }
+.title-lg { font-family: var(--font-display); font-size: 24px; line-height: 30px; font-weight: 700; letter-spacing: -0.01em; }
+.title-md { font-family: var(--font-display); font-size: 18px; line-height: 24px; font-weight: 600; }
+.body-lg { font-family: var(--font-sans); font-size: 17px; line-height: 26px; font-weight: 400; }
+.body { font-family: var(--font-sans); font-size: 15px; line-height: 22px; font-weight: 400; }
+.body-strong { font-family: var(--font-sans); font-size: 15px; line-height: 22px; font-weight: 600; }
+.label { font-family: var(--font-sans); font-size: 13px; line-height: 18px; font-weight: 600; letter-spacing: 0.01em; }
+.caption { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 500; }
+.time { font-family: var(--font-display); font-size: 20px; line-height: 24px; font-weight: 700; }
+.fare { font-family: var(--font-display); font-size: 20px; line-height: 24px; font-weight: 700; }
+.plate { font-family: var(--font-mono); font-size: 13px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; }

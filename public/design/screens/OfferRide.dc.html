@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Offer a ride</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Was claude.ai's support.js; dc-lite renders this file in any browser. -->
+<script src="../runtime/react.production.min.js"></script>
+<script src="../runtime/react-dom.production.min.js"></script>
+<link rel="stylesheet" href="../system/tokens.css">
+<link rel="stylesheet" href="../system/components/bundle.css">
+<link rel="stylesheet" href="../runtime/viewer.css">
+<script src="../system/components/bundle.js"></script>
+<script src="../runtime/dc-lite.js"></script>
+<script src="../runtime/manifest.js"></script>
+<script src="../runtime/viewer.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--brand)}a:hover{color:var(--brand-strong)}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 100vh; display: flex; flex-direction: column; background: var(--surface); color: var(--ink); font-family: var(--font-sans);">
+  <dc-import name="TopNav" active="offer" hint-size="100%,72px"></dc-import>
+  <main style="width: 100%; max-width: 1120px; margin: 0 auto; box-sizing: border-box; padding: 40px 32px 64px; display: flex; flex-direction: column; gap: 24px;">
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <h1 class="title-lg" style="margin: 0; font-size: 32px; line-height: 38px;">Offer a ride</h1>
+      <p class="body" style="margin: 0; color: var(--ink-muted);">Share the empty seats on a trip you're already making.</p>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 32px;">
+      <form style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 28px; padding: 32px; background: var(--surface-raised); border: 1px solid var(--line); border-radius: 16px;">
+        <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 12px;">
+          <legend class="label" style="padding: 0; margin-bottom: 12px;">Vehicle</legend>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
+            <sc-for list="{{vehicles}}" as="v" hint-placeholder-count="2">
+              <label style="{{v.style}}">
+                <input type="radio" name="vehicle" checked="{{v.checked}}" onChange="{{v.pick}}" style="width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--brand);">
+                <span style="display: flex; flex-direction: column; gap: 2px;">
+                  <span class="body-strong">{{v.title}}</span>
+                  <span class="caption" style="color: var(--ink-muted);">{{v.meta}}</span>
+                </span>
+              </label>
+            </sc-for>
+          </div>
+        </fieldset>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+          <x-import component-from-global-scope="Carona.TextField" id="from" label="From" default-value="Ikeja City Mall" on-change="{{setFrom}}"></x-import>
+          <x-import component-from-global-scope="Carona.TextField" id="to" label="To" default-value="Victoria Island" on-change="{{setTo}}"></x-import>
+          <x-import component-from-global-scope="Carona.TextField" id="day" label="Day" type="date" default-value="2026-11-13"></x-import>
+          <x-import component-from-global-scope="Carona.TextField" id="time" label="Leaving at" type="time" default-value="07:30"></x-import>
+          <x-import component-from-global-scope="Carona.TextField" id="seats" label="Seats to offer" type="number" min="1" max="{{capacity}}" default-value="3" hint="{{seatsHint}}" on-change="{{setSeats}}"></x-import>
+          <x-import component-from-global-scope="Carona.TextField" id="fare" label="Fare per seat" prefix="₦" input-mode="numeric" default-value="2500" on-change="{{setFare}}"></x-import>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px;">
+          <a href="DriverRide.dc.html" class="cr-btn cr-btn--primary cr-btn--md" style="text-decoration: none;">Offer ride</a>
+        </div>
+      </form>
+
+      <aside style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 12px;">
+        <p class="label" style="margin: 0; color: var(--ink-muted);">Passengers will see</p>
+        <x-import component-from-global-scope="Carona.RideCard" ride="{{preview}}"></x-import>
+        <p class="caption" style="margin: 0; color: var(--ink-muted);">Your plate number is only shown to people who book.</p>
+      </aside>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { vehicle: 'v1', from: 'Ikeja City Mall', to: 'Victoria Island', seats: 3, fare: 2500 };
+  }
+  renderVals() {
+    const list = [
+      { id: 'v1', make: 'Toyota', model: 'Corolla', colour: 'Silver', capacity: 4, plate: 'LND 482 KJ' },
+      { id: 'v2', make: 'Toyota', model: 'Sienna', colour: 'Blue', capacity: 6, plate: 'EPE 21 XY' }
+    ];
+    const chosen = list.find((v) => v.id === this.state.vehicle) || list[0];
+    const card = 'display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; border-radius: 10px; cursor: pointer; border: ';
+    const fare = Math.max(0, Number(String(this.state.fare).replace(/[^0-9]/g, '')) || 0);
+    const seats = Math.min(chosen.capacity, Math.max(1, Number(this.state.seats) || 1));
+    return {
+      theme: this.props.theme ?? 'light',
+      capacity: chosen.capacity,
+      seatsHint: 'Up to ' + chosen.capacity + ' in this car.',
+      vehicles: list.map((v) => ({
+        title: v.colour + ' ' + v.make + ' ' + v.model,
+        meta: v.plate + ' · ' + v.capacity + ' passenger seats',
+        checked: v.id === chosen.id,
+        pick: () => this.setState({ vehicle: v.id }),
+        style: card + (v.id === chosen.id ? '2px solid var(--brand); background: var(--brand-soft);' : '1px solid var(--line-strong); background: var(--surface-raised);')
+      })),
+      setFrom: (e) => this.setState({ from: e.target.value }),
+      setTo: (e) => this.setState({ to: e.target.value }),
+      setSeats: (e) => this.setState({ seats: e.target.value }),
+      setFare: (e) => this.setState({ fare: e.target.value }),
+      preview: {
+        id: 'preview', origin: this.state.from || 'Starting point', destination: this.state.to || 'Destination',
+        departure_time: '2026-11-13T07:30:00', arrival_time: null, fare, seats_left: seats, status: 'scheduled',
+        driver: { first_name: 'Tunde', last_name: 'Bakare' }, vehicle: { make: chosen.make, model: chosen.model, colour: chosen.colour }
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

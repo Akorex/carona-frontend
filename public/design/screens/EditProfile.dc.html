@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Edit profile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Was claude.ai's support.js; dc-lite renders this file in any browser. -->
+<script src="../runtime/react.production.min.js"></script>
+<script src="../runtime/react-dom.production.min.js"></script>
+<link rel="stylesheet" href="../system/tokens.css">
+<link rel="stylesheet" href="../system/components/bundle.css">
+<link rel="stylesheet" href="../runtime/viewer.css">
+<script src="../system/components/bundle.js"></script>
+<script src="../runtime/dc-lite.js"></script>
+<script src="../runtime/manifest.js"></script>
+<script src="../runtime/viewer.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--brand)}a:hover{color:var(--brand-strong)}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 100vh; display: flex; flex-direction: column; background: var(--surface); color: var(--ink); font-family: var(--font-sans);">
+  <dc-import name="TopNav" active="profile" hint-size="100%,72px"></dc-import>
+  <main style="width: 100%; max-width: 640px; margin: 0 auto; box-sizing: border-box; padding: 40px 32px 64px; display: flex; flex-direction: column; gap: 24px;">
+    <a href="Profile.dc.html" class="label" style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none; align-self: flex-start;">
+      <x-import component-from-global-scope="Carona.Icon" name="arrow-left" size="{{small}}"></x-import>Profile
+    </a>
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <h1 class="page-title" style="margin: 0;">Edit your details</h1>
+      <p class="body" style="margin: 0; color: var(--ink-muted);">Drivers and passengers see your name. Your phone number is only shared with people on the same trip.</p>
+    </div>
+    <form style="display: flex; flex-direction: column; gap: 20px; padding: 32px; background: var(--surface-raised); border: 1px solid var(--line); border-radius: 16px;">
+      <div style="display: flex; align-items: center; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid var(--line);">
+        <x-import component-from-global-scope="Carona.Avatar" name="{{fullName}}" size="lg"></x-import>
+        <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0;">
+          <span class="title-md">{{fullName}}</span>
+          <span class="caption" style="color: var(--ink-muted);">Your initials update as you type.</span>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+        <x-import component-from-global-scope="Carona.TextField" id="first" label="First name" default-value="Tunde" auto-complete="given-name" on-change="{{setFirst}}"></x-import>
+        <x-import component-from-global-scope="Carona.TextField" id="last" label="Last name" default-value="Bakare" auto-complete="family-name" on-change="{{setLast}}"></x-import>
+      </div>
+      <x-import component-from-global-scope="Carona.TextField" id="phone" label="Phone number" optional="{{yes}}" type="tel" default-value="0803 555 0142" auto-complete="tel" error="That phone number is already on another account."></x-import>
+      <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; padding-top: 8px;">
+        <a href="Profile.dc.html" class="cr-btn cr-btn--ghost cr-btn--md">Cancel</a>
+        <a href="Profile.dc.html" class="cr-btn cr-btn--primary cr-btn--md">Save changes</a>
+      </div>
+    </form>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1440,"height":960}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { first: 'Tunde', last: 'Bakare' };
+  }
+  renderVals() {
+    const full = (this.state.first + ' ' + this.state.last).trim();
+    return {
+      theme: this.props.theme ?? 'light',
+      small: 16,
+      yes: true,
+      fullName: full || 'Your name',
+      setFirst: (e) => this.setState({ first: e.target.value }),
+      setLast: (e) => this.setState({ last: e.target.value })
+    };
+  }
+}
+</script>
+</body>
+</html>

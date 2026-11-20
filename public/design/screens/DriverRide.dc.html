@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Driver, my ride</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Was claude.ai's support.js; dc-lite renders this file in any browser. -->
+<script src="../runtime/react.production.min.js"></script>
+<script src="../runtime/react-dom.production.min.js"></script>
+<link rel="stylesheet" href="../system/tokens.css">
+<link rel="stylesheet" href="../system/components/bundle.css">
+<link rel="stylesheet" href="../runtime/viewer.css">
+<script src="../system/components/bundle.js"></script>
+<script src="../runtime/dc-lite.js"></script>
+<script src="../runtime/manifest.js"></script>
+<script src="../runtime/viewer.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--brand)}a:hover{color:var(--brand-strong)}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 100vh; display: flex; flex-direction: column; background: var(--surface); color: var(--ink); font-family: var(--font-sans);">
+  <dc-import name="TopNav" active="trips" hint-size="100%,72px"></dc-import>
+  <main style="width: 100%; max-width: 1120px; margin: 0 auto; box-sizing: border-box; padding: 40px 32px 64px; display: flex; flex-direction: column; gap: 24px;">
+    <a href="Trips.dc.html" class="label" style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none; align-self: flex-start;">
+      <x-import component-from-global-scope="Carona.Icon" name="arrow-left" size="{{small}}"></x-import>My trips
+    </a>
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px;">
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span class="label" style="color: var(--ink-muted);">You're driving · Fri 13 Nov</span>
+          <x-import component-from-global-scope="Carona.StatusBadge" status="scheduled"></x-import>
+        </div>
+        <h1 class="title-lg" style="margin: 0; font-size: 32px; line-height: 38px;">Ikeja City Mall to Victoria Island</h1>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+        <x-import component-from-global-scope="Carona.Button" variant="danger-ghost">Cancel ride</x-import>
+        <x-import component-from-global-scope="Carona.Button" icon="steering">Start trip</x-import>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px;">
+      <section style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 20px; padding: 24px; background: var(--surface-raised); border: 1px solid var(--line); border-radius: 16px;">
+        <x-import component-from-global-scope="Carona.RouteLine" origin="Ikeja City Mall, main gate" destination="Victoria Island, Adeola Odeku St" departure="2026-11-13T07:30:00" arrival="2026-11-13T08:45:00"></x-import>
+        <dl style="margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding-top: 16px; border-top: 1px solid var(--line);">
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <dt class="caption" style="color: var(--ink-muted);">Vehicle</dt>
+            <dd class="body-strong" style="margin: 0;">Silver Toyota Corolla</dd>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <dt class="caption" style="color: var(--ink-muted);">Fare per seat</dt>
+            <dd class="body-strong" style="margin: 0;">₦2,500</dd>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <dt class="caption" style="color: var(--ink-muted);">Seats booked</dt>
+            <dd class="body-strong" style="margin: 0;">3 of 4</dd>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <dt class="caption" style="color: var(--ink-muted);">To collect in cash</dt>
+            <dd class="fare" style="margin: 0;">₦7,500</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 12px;">
+        <h2 class="title-md" style="margin: 0;">Passengers</h2>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; background: var(--surface-raised); border: 1px solid var(--line); border-radius: 16px;">
+          <sc-for list="{{passengers}}" as="p" hint-placeholder-count="2">
+            <li style="{{p.style}}">
+              <x-import component-from-global-scope="Carona.Avatar" name="{{p.name}}"></x-import>
+              <span style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column;">
+                <span class="body-strong">{{p.name}}</span>
+                <span class="caption" style="color: var(--ink-muted);">{{p.meta}}</span>
+              </span>
+              <span class="body-strong" style="white-space: nowrap;">{{p.seats}}</span>
+            </li>
+          </sc-for>
+        </ul>
+        <p class="caption" style="margin: 0; color: var(--ink-muted);">Start trip becomes available 30 minutes before departure.</p>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const row = 'display: flex; align-items: center; gap: 16px; padding: 16px 20px;';
+    const list = [
+      { name: 'Chiamaka Obi', meta: 'Booked Tue 10 Nov · 0806 214 7730', seats: '2 seats' },
+      { name: 'Ifeoluwa Adeyemi', meta: 'Booked Tue 10 Nov · 0812 908 4415', seats: '1 seat' }
+    ];
+    return {
+      theme: this.props.theme ?? 'light',
+      small: 16,
+      passengers: list.map((p, i) => ({ ...p, style: row + (i < list.length - 1 ? ' border-bottom: 1px solid var(--line);' : '') }))
+    };
+  }
+}
+</script>
+</body>
+</html>

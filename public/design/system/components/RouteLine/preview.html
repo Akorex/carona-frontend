@@ -1,0 +1,16 @@
+<!-- @dsCard group="Rides" height=200 subtitle="Origin to destination; amber lane between" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+var C = window.Carona, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(
+  h('div', { className: 'cr-preview cr-preview--col', style: { gap: 'var(--space-6)' } },
+    h(C.RouteLine, { origin: 'Lekki Phase 1', destination: 'Yaba, Herbert Macaulay Way', departure: '2026-11-12T17:15:00', arrival: '2026-11-12T18:40:00' }),
+    h(C.RouteLine, { origin: 'Ajah', destination: 'Marina' }))
+);
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Search results, none</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Was claude.ai's support.js; dc-lite renders this file in any browser. -->
+<script src="../runtime/react.production.min.js"></script>
+<script src="../runtime/react-dom.production.min.js"></script>
+<link rel="stylesheet" href="../system/tokens.css">
+<link rel="stylesheet" href="../system/components/bundle.css">
+<link rel="stylesheet" href="../runtime/viewer.css">
+<script src="../system/components/bundle.js"></script>
+<script src="../runtime/dc-lite.js"></script>
+<script src="../runtime/manifest.js"></script>
+<script src="../runtime/viewer.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--brand)}a:hover{color:var(--brand-strong)}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 100vh; display: flex; flex-direction: column; background: var(--surface); color: var(--ink); font-family: var(--font-sans);">
+  <dc-import name="TopNav" active="find" hint-size="100%,72px"></dc-import>
+  <main style="width: 100%; max-width: 1120px; margin: 0 auto; box-sizing: border-box; padding: 32px 32px 64px; display: flex; flex-direction: column; gap: 28px;">
+    <form style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); align-items: end; gap: 16px; padding: 20px; background: var(--surface-raised); border: 1px solid var(--line); border-radius: 16px;">
+      <x-import component-from-global-scope="Carona.TextField" id="from" label="From" default-value="Ikorodu Garage"></x-import>
+      <x-import component-from-global-scope="Carona.TextField" id="to" label="To" default-value="Lekki Phase 1"></x-import>
+      <x-import component-from-global-scope="Carona.TextField" id="date" label="Day" type="date" default-value="2026-11-15"></x-import>
+      <a href="Results.dc.html" class="cr-btn cr-btn--secondary cr-btn--md cr-btn--block" style="text-decoration: none;">
+        <x-import component-from-global-scope="Carona.Icon" name="search"></x-import>Update search
+      </a>
+    </form>
+    <div style="display: flex; flex-direction: column; align-items: center; padding: 32px 24px; background: var(--surface-raised); border: 1px dashed var(--line-strong); border-radius: 16px;">
+      <x-import component-from-global-scope="Carona.EmptyState" icon="search" title="No rides match">Nobody is driving from Ikorodu Garage to Lekki Phase 1 on Sun 15 Nov yet. Try a nearby place or another day.</x-import>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { theme: this.props.theme ?? 'light' };
+  }
+}
+</script>
+</body>
+</html>

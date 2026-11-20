@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Top navigation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Was claude.ai's support.js; dc-lite renders this file in any browser. -->
+<script src="../runtime/react.production.min.js"></script>
+<script src="../runtime/react-dom.production.min.js"></script>
+<link rel="stylesheet" href="../system/tokens.css">
+<link rel="stylesheet" href="../system/components/bundle.css">
+<link rel="stylesheet" href="../runtime/viewer.css">
+<script src="../system/components/bundle.js"></script>
+<script src="../runtime/dc-lite.js"></script>
+<script src="../runtime/manifest.js"></script>
+<script src="../runtime/viewer.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<header style="width: 100%; background: var(--surface-raised); border-bottom: 1px solid var(--line); font-family: var(--font-sans); color: var(--ink);">
+  <div style="max-width: 1120px; margin: 0 auto; box-sizing: border-box; min-height: 72px; padding: 0 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 32px;">
+    <a href="{{homeHref}}" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--brand);">
+      <span aria-hidden="true" style="display: flex; align-items: center; gap: 4px;">
+        <span style="width: 12px; height: 12px; box-sizing: border-box; border-radius: 999px; border: 3px solid var(--brand);"></span>
+        <span style="width: 10px; height: 4px; border-radius: 2px; background: var(--marking);"></span>
+        <span style="width: 10px; height: 4px; border-radius: 2px; background: var(--marking);"></span>
+        <span style="width: 12px; height: 12px; border-radius: 999px; background: var(--brand);"></span>
+      </span>
+      <span style="font: 700 22px/28px var(--font-display); letter-spacing: -0.01em;">Carona</span>
+    </a>
+    <sc-if value="{{signedIn}}" hint-placeholder-val="{{true}}">
+      <nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 4px; flex-grow: 1; align-self: stretch;">
+        <sc-for list="{{links}}" as="l" hint-placeholder-count="3">
+          <a href="{{l.href}}" aria-current="{{l.current}}" style="{{l.style}}">{{l.label}}</a>
+        </sc-for>
+      </nav>
+      <a href="Profile.dc.html" aria-current="{{profileCurrent}}" style="display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 4px; text-decoration: none; color: var(--ink);">
+        <x-import component-from-global-scope="Carona.Avatar" name="Tunde Bakare" size="sm"></x-import>
+        <span style="font: 600 15px/22px var(--font-sans);">Tunde</span>
+      </a>
+    </sc-if>
+    <sc-if value="{{signedOut}}" hint-placeholder-val="{{false}}">
+      <div style="margin-left: auto; display: flex; align-items: center; gap: 8px;">
+        <a href="SignIn.dc.html" class="cr-btn cr-btn--ghost cr-btn--md" style="text-decoration: none;">Sign in</a>
+        <a href="Register.dc.html" class="cr-btn cr-btn--primary cr-btn--md" style="text-decoration: none;">Create account</a>
+      </div>
+    </sc-if>
+  </div>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"enum","options":["find","trips","offer","profile","none"],"default":"find"},"signedIn":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":72}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const active = this.props.active ?? 'find';
+    const signedIn = this.props.signedIn ?? true;
+    const base = 'display: flex; align-items: center; min-height: 48px; padding: 0 14px; text-decoration: none; font: 600 15px/22px var(--font-sans); border-bottom: 3px solid ';
+    const items = [
+      { id: 'find', label: 'Find a ride', href: 'Find.dc.html' },
+      { id: 'trips', label: 'My trips', href: 'Trips.dc.html' },
+      { id: 'offer', label: 'Offer a ride', href: 'OfferRide.dc.html' }
+    ];
+    return {
+      signedIn,
+      signedOut: !signedIn,
+      homeHref: signedIn ? 'Find.dc.html' : 'Main.dc.html',
+      profileCurrent: active === 'profile' ? 'page' : undefined,
+      links: items.map((it) => ({
+        ...it,
+        current: it.id === active ? 'page' : undefined,
+        style: base + (it.id === active ? 'var(--brand); color: var(--brand);' : 'transparent; color: var(--ink-muted);')
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!-- @dsCard group="Identity" height=80 subtitle="How passengers find the right car" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+var C = window.Carona, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(
+  h('div', { className: 'cr-preview' }, h(C.PlateNumber, null, 'lnd 482 kj'), h(C.PlateNumber, null, 'KJA-907-AB'), h(C.PlateNumber, null, 'EPE 21 XY'))
+);
+</script>
+</body>
+</html>

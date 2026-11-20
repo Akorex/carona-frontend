@@ -1,0 +1,17 @@
+<!-- @dsCard group="Identity" height=104 subtitle="Initials until profile photos exist" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+var C = window.Carona, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(
+  h('div', { className: 'cr-preview', style: { alignItems: 'center' } },
+    h(C.Avatar, { name: 'Tunde Bakare', size: 'sm' }),
+    h(C.Avatar, { name: 'Chiamaka Obi' }),
+    h(C.Avatar, { name: 'Ifeoluwa Adeyemi-Cole', size: 'lg' }))
+);
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Welcome</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Was claude.ai's support.js; dc-lite renders this file in any browser. -->
+<script src="../runtime/react.production.min.js"></script>
+<script src="../runtime/react-dom.production.min.js"></script>
+<link rel="stylesheet" href="../system/tokens.css">
+<link rel="stylesheet" href="../system/components/bundle.css">
+<link rel="stylesheet" href="../runtime/viewer.css">
+<script src="../system/components/bundle.js"></script>
+<script src="../runtime/dc-lite.js"></script>
+<script src="../runtime/manifest.js"></script>
+<script src="../runtime/viewer.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--brand)}a:hover{color:var(--brand-strong)}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 100vh; display: flex; flex-direction: column; background: var(--surface); color: var(--ink); font-family: var(--font-sans);">
+  <dc-import name="TopNav" signed-in="{{no}}" active="none" hint-size="100%,72px"></dc-import>
+  <main style="width: 100%; max-width: 1120px; margin: 0 auto; box-sizing: border-box; padding: 64px 32px; display: flex; flex-direction: column; gap: 72px;">
+    <section style="display: flex; flex-wrap: wrap; align-items: center; gap: 48px;">
+      <div style="flex: 999 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 24px;">
+        <h1 class="display" style="margin: 0; font-size: 56px; line-height: 60px; letter-spacing: -0.03em; text-wrap: balance;">Share the ride you're already taking.</h1>
+        <p class="body-lg" style="margin: 0; max-width: 46ch; color: var(--ink-muted);">Drivers fill their empty seats on trips they already make. Passengers get across Lagos for less, with someone going the same way.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+          <a href="Register.dc.html" class="cr-btn cr-btn--primary cr-btn--md" style="text-decoration: none;">Create account</a>
+          <a href="SignIn.dc.html" class="cr-btn cr-btn--secondary cr-btn--md" style="text-decoration: none;">Sign in</a>
+        </div>
+      </div>
+      <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 24px; border-radius: 16px; background: var(--brand-soft);">
+        <p class="label" style="margin: 0; color: var(--brand);"><br></p>
+        <x-import component-from-global-scope="Carona.RideCard" ride="{{ride1}}"></x-import>
+        <x-import component-from-global-scope="Carona.RideCard" ride="{{ride2}}"></x-import>
+      </div>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 24px;">
+      <h2 class="title-lg" style="margin: 0;">How a trip works</h2>
+      <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+        <li style="display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 2px dashed var(--marking);">
+          <span class="label" style="color: var(--brand);">Step 1</span>
+          <span class="title-md">Search your route</span>
+          <span class="body" style="color: var(--ink-muted);">Enter where you're starting, where you're going and the day.</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 2px dashed var(--marking);">
+          <span class="label" style="color: var(--brand);">Step 2</span>
+          <span class="title-md">Book your seats</span>
+          <span class="body" style="color: var(--ink-muted);">See the time, the fare per seat and who's driving, then book.</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 2px dashed var(--marking);">
+          <span class="label" style="color: var(--brand);">Step 3</span>
+          <span class="title-md">Meet the car</span>
+          <span class="body" style="color: var(--ink-muted);">You get the car's colour, model and plate number. Pay the driver in cash.</span>
+        </li>
+      </ol>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1440,"height":980}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      theme: this.props.theme ?? 'light',
+      no: false,
+      ride1: { id: 'r1', origin: 'Ikeja City Mall', destination: 'Victoria Island', departure_time: '2026-11-12T07:30:00', arrival_time: '2026-11-12T08:45:00', fare: 2500, seats_left: 3, status: 'scheduled',
+        driver: { first_name: 'Tunde', last_name: 'Bakare' }, vehicle: { make: 'Toyota', model: 'Corolla', colour: 'Silver' } },
+      ride2: { id: 'r2', origin: 'Lekki Phase 1', destination: 'Yaba', departure_time: '2026-11-12T17:15:00', arrival_time: null, fare: 1800, seats_left: 1, status: 'scheduled',
+        driver: { first_name: 'Chiamaka', last_name: 'Obi' }, vehicle: { make: 'Honda', model: 'Civic', colour: 'Black' } }
+    };
+  }
+}
+</script>
+</body>
+</html>

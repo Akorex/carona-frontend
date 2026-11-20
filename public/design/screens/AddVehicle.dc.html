@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Add vehicle</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Was claude.ai's support.js; dc-lite renders this file in any browser. -->
+<script src="../runtime/react.production.min.js"></script>
+<script src="../runtime/react-dom.production.min.js"></script>
+<link rel="stylesheet" href="../system/tokens.css">
+<link rel="stylesheet" href="../system/components/bundle.css">
+<link rel="stylesheet" href="../runtime/viewer.css">
+<script src="../system/components/bundle.js"></script>
+<script src="../runtime/dc-lite.js"></script>
+<script src="../runtime/manifest.js"></script>
+<script src="../runtime/viewer.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--brand)}a:hover{color:var(--brand-strong)}
+</style>
+</helmet>
+<div data-theme="{{theme}}" style="min-height: 100vh; display: flex; flex-direction: column; background: var(--surface); color: var(--ink); font-family: var(--font-sans);">
+  <dc-import name="TopNav" active="profile" hint-size="100%,72px"></dc-import>
+  <main style="width: 100%; max-width: 640px; margin: 0 auto; box-sizing: border-box; padding: 40px 32px 64px; display: flex; flex-direction: column; gap: 24px;">
+    <a href="Vehicles.dc.html" class="label" style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none; align-self: flex-start;">
+      <x-import component-from-global-scope="Carona.Icon" name="arrow-left" size="{{small}}"></x-import>My vehicles
+    </a>
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <h1 class="title-lg" style="margin: 0; font-size: 32px; line-height: 38px;">Add a vehicle</h1>
+      <p class="body" style="margin: 0; color: var(--ink-muted);">Passengers use these details to find your car at pickup.</p>
+    </div>
+    <form style="display: flex; flex-direction: column; gap: 20px; padding: 32px; background: var(--surface-raised); border: 1px solid var(--line); border-radius: 16px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+        <x-import component-from-global-scope="Carona.TextField" id="make" label="Make" default-value="Honda" placeholder="Toyota"></x-import>
+        <x-import component-from-global-scope="Carona.TextField" id="model" label="Model" default-value="Civic" placeholder="Corolla"></x-import>
+        <x-import component-from-global-scope="Carona.TextField" id="colour" label="Colour" default-value="Black" placeholder="Silver"></x-import>
+        <x-import component-from-global-scope="Carona.TextField" id="capacity" label="Passenger seats" type="number" input-mode="numeric" min="1" max="8" default-value="4" hint="Not counting yours. 1 to 8."></x-import>
+      </div>
+      <x-import component-from-global-scope="Carona.TextField" id="plate" label="Plate number" default-value="LND 482 KJ" auto-capitalize="characters" error="A vehicle with this plate number is already registered."></x-import>
+      <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; padding-top: 8px;">
+        <a href="Vehicles.dc.html" class="cr-btn cr-btn--ghost cr-btn--md" style="text-decoration: none;">Cancel</a>
+        <x-import component-from-global-scope="Carona.Button" type="submit">Save vehicle</x-import>
+      </div>
+    </form>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { theme: this.props.theme ?? 'light', small: 16 };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,461 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "AddVehicle.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "title": "Add vehicle · duplicate plate",
+      "w": 1440,
+      "x": 7600,
+      "y": 1700
+    },
+    "Booked.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "title": "Booking confirmed",
+      "w": 1440,
+      "x": 6080,
+      "y": 3400
+    },
+    "DriverRide.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "title": "Driver · my ride",
+      "w": 1440,
+      "x": 4560,
+      "y": 5100
+    },
+    "EditVehicle.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "title": "Edit vehicle · saving",
+      "w": 1440,
+      "x": 9120,
+      "y": 1700
+    },
+    "Find.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "title": "Find a ride",
+      "w": 1440,
+      "x": 0,
+      "y": 3400
+    },
+    "Main.dc.html": {
+      "expand": "fill",
+      "h": 980,
+      "is_interactive": true,
+      "title": "Welcome",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "OfferNoVehicle.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "title": "Offer a ride · no vehicle",
+      "w": 1440,
+      "x": 1520,
+      "y": 5100
+    },
+    "OfferRide.dc.html": {
+      "expand": "fill",
+      "h": 1000,
+      "is_interactive": true,
+      "title": "Offer a ride",
+      "w": 1440,
+      "x": 3040,
+      "y": 5100
+    },
+    "Profile.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "title": "Profile",
+      "w": 1440,
+      "x": 0,
+      "y": 1700
+    },
+    "Register.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "title": "Create account",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "RegisterErrors.dc.html": {
+      "expand": "fill",
+      "h": 960,
+      "is_interactive": true,
+      "title": "Create account · errors",
+      "w": 1440,
+      "x": 3040,
+      "y": 0
+    },
+    "Results.dc.html": {
+      "expand": "fill",
+      "h": 1000,
+      "is_interactive": true,
+      "title": "Search results",
+      "w": 1440,
+      "x": 1520,
+      "y": 3400
+    },
+    "ResultsEmpty.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "title": "Search results · none",
+      "w": 1440,
+      "x": 3040,
+      "y": 3400
+    },
+    "RideDetail.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "title": "Ride details",
+      "w": 1440,
+      "x": 4560,
+      "y": 3400
+    },
+    "SignIn.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "title": "Sign in · wrong password",
+      "w": 1440,
+      "x": 4560,
+      "y": 0
+    },
+    "TopNav.dc.html": {
+      "h": 72,
+      "is_interactive": true,
+      "title": "Top navigation (shared)",
+      "w": 1440,
+      "x": 0,
+      "y": -760
+    },
+    "Trips.dc.html": {
+      "expand": "fill",
+      "h": 1100,
+      "is_interactive": true,
+      "title": "My trips",
+      "w": 1440,
+      "x": 0,
+      "y": 5100
+    },
+    "Vehicles.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "title": "My vehicles",
+      "w": 1440,
+      "x": 3040,
+      "y": 1700
+    },
+    "VehiclesEmpty.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "title": "My vehicles · empty",
+      "w": 1440,
+      "x": 4560,
+      "y": 1700
+    },
+    "VehiclesLoading.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "title": "My vehicles · loading",
+      "w": 1440,
+      "x": 6080,
+      "y": 1700
+    },
+    "EditProfile.dc.html": {
+      "expand": "fill",
+      "h": 960,
+      "is_interactive": true,
+      "title": "Edit profile · phone taken",
+      "w": 1440,
+      "x": 1520,
+      "y": 1700
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-11-10T12:30:00Z",
+    "v": 1
+  },
+  "designSystems": [
+    {
+      "artifact": "https://claude.ai/artifact/VPuVqCELrDFfWhu5HxoeRN",
+      "copiedAt": "2026-11-10T14:05:00Z",
+      "namespace": "carona",
+      "title": "Carona",
+      "version": "1794293433-fddb"
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  },
+  "noteOrder": [
+    "row0",
+    "row1",
+    "row2",
+    "row3",
+    "row4",
+    "intro",
+    "n-topnav",
+    "n-welcome",
+    "n-register",
+    "n-register-err",
+    "n-signin",
+    "n-profile",
+    "n-edit-profile",
+    "n-vehicles",
+    "n-vehicles-empty",
+    "n-vehicles-loading",
+    "n-add-vehicle",
+    "n-edit-vehicle",
+    "n-find",
+    "n-results",
+    "n-results-empty",
+    "n-ride-detail",
+    "n-booked",
+    "n-trips",
+    "n-offer-none",
+    "n-offer",
+    "n-driver"
+  ],
+  "notes": {
+    "intro": {
+      "fill": "teal",
+      "size": 24,
+      "text": "How to read this canvas\n\nEvery screen is a web page designed at laptop width (1440px), built from the Carona design system's real components. Pages are fluid, so they also work in a narrow window.\n\nPress Play on any page to click through: the top navigation and the main links move between pages.\n\nRows 1 and 2 work against the API as it is today. Rows 3 and 4 need the rides and bookings endpoints from the roadmap.\n\nThe note under each page names its endpoint and what the code must handle. Every page has a Theme tweak to check dark mode.",
+      "w": 520,
+      "x": -640,
+      "y": 0
+    },
+    "n-add-vehicle": {
+      "fill": "green",
+      "text": "Works today · POST /vehicles/\n400 \"Vehicle already exists\" means the plate is taken: show it on the plate field. Capacity has no limits in the API yet; the form allows 1–8.",
+      "w": 480,
+      "x": 7600,
+      "y": 2640
+    },
+    "n-booked": {
+      "fill": "blue",
+      "text": "Planned · booking response\nThe plate number and car colour appear only after booking. Cash at pickup is the default for now.",
+      "w": 480,
+      "x": 6080,
+      "y": 4340
+    },
+    "n-driver": {
+      "fill": "blue",
+      "text": "Planned · GET /rides/{id}/bookings, PATCH /rides/{id}/status\nStart trip appears from 30 minutes before departure. Cancelling asks for confirmation and cancels every booking.",
+      "w": 480,
+      "x": 4560,
+      "y": 6040
+    },
+    "n-edit-vehicle": {
+      "fill": "orange",
+      "text": "Blocked · PATCH /vehicles/{id}\nFails with a 500 until the argument order in routes/vehicles.py is fixed, and needs every field until VehicleUpdate makes them optional. Send only changed fields. There is no DELETE yet, so no Remove button.",
+      "w": 480,
+      "x": 9120,
+      "y": 2640
+    },
+    "n-find": {
+      "fill": "blue",
+      "text": "Planned · GET /rides?origin=&destination=&date=\nPlaces are free text for now. Recent searches live in the browser (localStorage), not the API.",
+      "w": 480,
+      "x": 0,
+      "y": 4340
+    },
+    "n-offer": {
+      "fill": "blue",
+      "text": "Planned · POST /rides\nVehicle picker uses GET /vehicles/ (works today). Seats are capped at the vehicle's capacity. distance_km is left out until maps arrive. In Play, the preview card follows the fare and seats you type.",
+      "w": 480,
+      "x": 3040,
+      "y": 6140
+    },
+    "n-offer-none": {
+      "fill": "green",
+      "text": "Works today · GET /vehicles/ returns []\nDriving needs a vehicle, so Offer a ride asks for one first. This is the \"driver is a capability, not a role\" decision from the brief.",
+      "w": 480,
+      "x": 1520,
+      "y": 6040
+    },
+    "n-profile": {
+      "fill": "green",
+      "text": "Works today · GET /users/me\nShow name, email and phone. Never show role, password or ids. Sign out clears the token; there is no logout endpoint.\nEdit details opens Edit profile.",
+      "w": 480,
+      "x": 0,
+      "y": 2640
+    },
+    "n-register": {
+      "fill": "green",
+      "text": "Works today · POST /users/register\nFields mirror UserCreate: names 2–100 chars, password 6+. Phone is optional. On success, sign in straight away with the same email and password so the person doesn't type them twice.",
+      "w": 480,
+      "x": 1520,
+      "y": 940
+    },
+    "n-register-err": {
+      "fill": "green",
+      "text": "Works today · 400 and 422\n400 \"A user with this email already exists\" → form Alert with a Sign in link.\n422 → one error per field, read from detail[].loc.",
+      "w": 480,
+      "x": 3040,
+      "y": 1000
+    },
+    "n-results": {
+      "fill": "blue",
+      "text": "Planned · same endpoint\nEach ride must include seats_left, driver {first_name, last_name} and vehicle {make, model, colour} so the list needs one request. Sorted by departure time.",
+      "w": 480,
+      "x": 1520,
+      "y": 4440
+    },
+    "n-results-empty": {
+      "fill": "blue",
+      "text": "Planned · data: []\nOffer to change the search. Don't show an error: nothing went wrong.",
+      "w": 480,
+      "x": 3040,
+      "y": 4340
+    },
+    "n-ride-detail": {
+      "fill": "blue",
+      "text": "Planned · GET /rides/{id}, POST /rides/{id}/bookings\nThe seat stepper works in Play: the total updates with the seat count. If seats ran out meanwhile, reload the ride and lower the maximum.",
+      "w": 480,
+      "x": 4560,
+      "y": 4340
+    },
+    "n-signin": {
+      "fill": "green",
+      "text": "Works today · POST /users/login\nSave data.access_token, then GET /users/me. Both \"account does not exist\" and \"Incorrect password\" show the same message so the page doesn't reveal who has an account.",
+      "w": 480,
+      "x": 4560,
+      "y": 940
+    },
+    "n-topnav": {
+      "fill": "gray",
+      "text": "One file, imported by every page with <dc-import name=\"TopNav\">. Props: active (find, trips, offer, profile) and signed-in. Change it here and every page follows.",
+      "w": 480,
+      "x": 1520,
+      "y": -760
+    },
+    "n-trips": {
+      "fill": "blue",
+      "text": "Planned · GET /bookings/me and GET /rides/mine\nUpcoming first, then past. Shows rides you booked and rides you drive, with a badge for each state.",
+      "w": 480,
+      "x": 0,
+      "y": 6240
+    },
+    "n-vehicles": {
+      "fill": "green",
+      "text": "Works today · GET /vehicles/\nReturns only the signed-in user's vehicles. Capacity is shown as passenger seats.",
+      "w": 480,
+      "x": 3040,
+      "y": 2640
+    },
+    "n-vehicles-empty": {
+      "fill": "green",
+      "text": "Works today · empty list\ndata: [] → EmptyState with one action.",
+      "w": 480,
+      "x": 4560,
+      "y": 2640
+    },
+    "n-vehicles-loading": {
+      "fill": "green",
+      "text": "Works today · loading\nSkeleton cards in the same grid while GET /vehicles/ runs. The header never disappears.",
+      "w": 480,
+      "x": 6080,
+      "y": 2640
+    },
+    "n-welcome": {
+      "fill": "green",
+      "text": "Works today · no API call\nShown when there is no saved token. If a token exists, call GET /users/me: 200 goes to Find a ride, 401 stays here. The ride cards are labelled examples.",
+      "w": 480,
+      "x": 0,
+      "y": 1020
+    },
+    "row0": {
+      "kind": "title1",
+      "maxW": 1440,
+      "text": "Shared parts",
+      "w": 240,
+      "x": 0,
+      "y": -1020
+    },
+    "row1": {
+      "kind": "title1",
+      "maxW": 6000,
+      "text": "Get started · works with the API today",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "row2": {
+      "kind": "title1",
+      "maxW": 10560,
+      "text": "Profile and vehicles · works today (edit needs the PATCH fix)",
+      "w": 240,
+      "x": 0,
+      "y": 1400
+    },
+    "row3": {
+      "kind": "title1",
+      "maxW": 7520,
+      "text": "Find and book · needs the rides and bookings API",
+      "w": 240,
+      "x": 0,
+      "y": 3100
+    },
+    "row4": {
+      "kind": "title1",
+      "maxW": 6000,
+      "text": "Trips and offering a ride · needs the rides and bookings API",
+      "w": 240,
+      "x": 0,
+      "y": 4800
+    },
+    "n-edit-profile": {
+      "fill": "blue",
+      "w": 480,
+      "x": 1520,
+      "y": 2700,
+      "text": "Planned · PATCH /users/me (doesn't exist yet)\nEditable: first name, last name, phone. Email can't be changed: leave it out of UserUpdate so the API rejects or ignores it too, not just the form. Every field optional; phone keeps register's uniqueness check (400 → show it on the field). Send only changed fields, then reload GET /users/me. Changing the password is a separate flow, not designed yet."
+    }
+  },
+  "order": [
+    "TopNav.dc.html",
+    "Main.dc.html",
+    "Register.dc.html",
+    "RegisterErrors.dc.html",
+    "SignIn.dc.html",
+    "Profile.dc.html",
+    "EditProfile.dc.html",
+    "Vehicles.dc.html",
+    "VehiclesEmpty.dc.html",
+    "VehiclesLoading.dc.html",
+    "AddVehicle.dc.html",
+    "EditVehicle.dc.html",
+    "Find.dc.html",
+    "Results.dc.html",
+    "ResultsEmpty.dc.html",
+    "RideDetail.dc.html",
+    "Booked.dc.html",
+    "Trips.dc.html",
+    "OfferNoVehicle.dc.html",
+    "OfferRide.dc.html",
+    "DriverRide.dc.html"
+  ],
+  "pages": [],
+  "title": "Carona Screens"
+}

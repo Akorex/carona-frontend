@@ -1,0 +1,16 @@
+<!-- @dsCard group="Navigation" height=110 subtitle="Four destinations, always visible" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+var C = window.Carona, h = React.createElement;
+function Demo() {
+  var s = React.useState('find');
+  return h('div', { className: 'cr-preview cr-preview--col' }, h('div', { className: 'cr-phone' }, h(C.TabBar, { active: s[0], onChange: s[1] })));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

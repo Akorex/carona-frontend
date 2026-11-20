@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carona design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="system/tokens.css">
+<link rel="stylesheet" href="runtime/viewer.css">
+<script>
+  try { var t = localStorage.getItem("carona-design-theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+</script>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--surface); color: var(--ink); font: 400 15px/22px var(--font-sans); }
+  a { color: var(--brand); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  header { background: var(--surface-raised); border-bottom: 1px solid var(--line); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+  .top { min-height: 72px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .mark { display: flex; align-items: center; gap: 10px; color: var(--brand); text-decoration: none; font: 700 22px/28px var(--font-display); }
+  .mark i { display: flex; gap: 4px; align-items: center; }
+  .mark b { width: 12px; height: 12px; border-radius: 999px; border: 3px solid var(--brand); }
+  .mark s { width: 10px; height: 4px; border-radius: 2px; background: var(--marking); }
+  .mark u { width: 12px; height: 12px; border-radius: 999px; background: var(--brand); }
+  .mark small { font: 600 13px/18px var(--font-sans); color: var(--ink-muted); margin-left: 4px; }
+  .top nav { margin-left: auto; display: flex; gap: 4px; flex-wrap: wrap; }
+  .top nav a, .top nav button { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 10px; color: var(--ink); text-decoration: none; font: 600 14px/20px var(--font-sans); border: 0; background: none; cursor: pointer; }
+  .top nav a:hover, .top nav button:hover { background: var(--surface-sunken); }
+  main { padding: 40px 0 64px; display: flex; flex-direction: column; gap: 40px; }
+  h1 { margin: 0; font: 700 40px/46px var(--font-display); letter-spacing: -0.02em; }
+  .lead { margin: 8px 0 0; color: var(--ink-muted); font-size: 17px; line-height: 26px; max-width: 70ch; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .big { display: flex; flex-direction: column; gap: 6px; padding: 24px; background: var(--surface-raised); border: 1px solid var(--line); border-radius: 16px; color: var(--ink); text-decoration: none; box-shadow: var(--shadow-card); }
+  .big:hover { border-color: var(--brand); }
+  .big strong { font: 700 20px/26px var(--font-display); }
+  .big span { color: var(--ink-muted); }
+  h2 { margin: 0 0 12px; font: 600 18px/24px var(--font-display); }
+  ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+  li a { height: 100%; display: flex; flex-direction: column; gap: 8px; padding: 16px 18px; background: var(--surface-raised); border: 1px solid var(--line); border-radius: 16px; color: var(--ink); text-decoration: none; }
+  li a:hover { border-color: var(--brand); }
+  .row1 { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .row1 b { font: 600 15px/22px var(--font-sans); }
+  .api { font: 500 12px/18px var(--font-mono); color: var(--ink-muted); overflow-wrap: anywhere; }
+  .hint { color: var(--ink-muted); font-size: 13px; }
+  kbd { font: 500 12px var(--font-mono); padding: 1px 6px; border: 1px solid var(--line-strong); border-radius: 6px; }
+  @media (max-width: 640px) { .wrap { padding: 0 16px; } h1 { font-size: 32px; line-height: 38px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap top">
+    <a class="mark" href="index.html"><i aria-hidden="true"><b></b><s></s><s></s><u></u></i>Carona<small>design</small></a>
+    <nav aria-label="Design">
+      <a href="system/index.html">Design system</a>
+      <a href="/">Open the app</a>
+      <button type="button" id="theme">Dark</button>
+    </nav>
+  </div>
+</header>
+<div class="wrap">
+<main>
+  <div>
+    <h1>Carona design</h1>
+    <p class="lead">Everything that used to live on claude.ai: the 21 laptop screens from the Carona Screens canvas and the Carona design system. The screens are the canvas files themselves, so links between them work like the canvas's Play mode.</p>
+  </div>
+
+  <div class="cards">
+    <a class="big" href="screens/Main.dc.html"><strong>Play the screens</strong><span>Start at Welcome and click through. The bar at the bottom moves to the previous or next screen (<kbd>←</kbd> <kbd>→</kbd>), shows the canvas note and switches light/dark.</span></a>
+    <a class="big" href="system/index.html"><strong>Design system</strong><span>Principles, colour, type, layout, every component with its props, and the Building with Carona guide.</span></a>
+  </div>
+
+  <div id="rows"></div>
+  <p class="hint">The notes come from the canvas as it was on 20 Nov 2026. Some are out of date: PATCH /users/me and PATCH /vehicles/{id} now exist, and the backend has POST /rides/ (searching rides and bookings are still to come).</p>
+</main>
+</div>
+<script src="runtime/manifest.js"></script>
+<script>
+(function () {
+  var STATUS = { works: "Works today", planned: "Planned", blocked: "Blocked", shared: "Shared part" };
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  var rows = [], byRow = {};
+  window.CARONA_SCREENS.screens.forEach(function (s) {
+    if (!byRow[s.row]) { byRow[s.row] = []; rows.push(s.row); }
+    byRow[s.row].push(s);
+  });
+  var n = 0;
+  document.getElementById("rows").innerHTML = rows.map(function (r) {
+    return '<section><h2>' + esc(r) + '</h2><ol>' + byRow[r].map(function (s) {
+      n++;
+      var first = (s.note || "").split("\n")[0].replace(/^[^·]*·\s*/, "");
+      return '<li><a href="screens/' + s.file + '"><span class="row1"><b>' + n + ". " + esc(s.title) + '</b><span class="dv-chip dv-chip--' + s.status + '">' + esc(STATUS[s.status] || "") + '</span></span><span class="api">' + esc(first) + "</span></a></li>";
+    }).join("") + "</ol></section>";
+  }).join("");
+
+  var btn = document.getElementById("theme");
+  function cur() { return document.documentElement.getAttribute("data-theme") || "light"; }
+  function paint() { btn.textContent = cur() === "dark" ? "Light" : "Dark"; }
+  btn.addEventListener("click", function () {
+    var t = cur() === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", t);
+    try { localStorage.setItem("carona-design-theme", t); } catch (e) {}
+    paint();
+  });
+  paint();
+})();
+</script>
+</body>
+</html>

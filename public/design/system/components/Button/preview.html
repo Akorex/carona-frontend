@@ -1,0 +1,24 @@
+<!-- @dsCard group="Actions" height=170 subtitle="One primary per screen; labels say the outcome" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+var C = window.Carona, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(
+  h('div', { className: 'cr-preview cr-preview--col' },
+    h('div', { style: { display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap' } },
+      h(C.Button, null, 'Book 2 seats'),
+      h(C.Button, { variant: 'secondary', icon: 'plus' }, 'Add vehicle'),
+      h(C.Button, { variant: 'ghost' }, 'Skip for now'),
+      h(C.Button, { variant: 'danger-ghost' }, 'Cancel booking')),
+    h('div', { style: { display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap', alignItems: 'center' } },
+      h(C.Button, { loading: true }, 'Signing in'),
+      h(C.Button, { disabled: true }, 'Offer ride'),
+      h(C.Button, { size: 'sm', variant: 'ghost', icon: 'pencil' }, 'Edit'),
+      h(C.Button, { size: 'sm', variant: 'danger' }, 'Cancel ride')))
+);
+</script>
+</body>
+</html>

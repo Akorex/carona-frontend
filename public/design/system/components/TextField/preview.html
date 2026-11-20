@@ -1,0 +1,19 @@
+<!-- @dsCard group="Forms" height=330 subtitle="Label above, hint or error below" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+var C = window.Carona, h = React.createElement;
+function Demo() {
+  return h('form', { className: 'cr-preview cr-preview--col', onSubmit: function (e) { e.preventDefault(); } },
+    h(C.TextField, { id: 'email', label: 'Email', type: 'email', placeholder: 'you@example.com', defaultValue: 'chiamaka.obi@mail.ng', autoComplete: 'email' }),
+    h(C.TextField, { id: 'phone', label: 'Phone number', optional: true, type: 'tel', placeholder: '0803 123 4567', hint: 'Drivers use it to reach you at pickup.' }),
+    h(C.TextField, { id: 'fare', label: 'Fare per seat', prefix: '\u20A6', inputMode: 'numeric', defaultValue: '2,500' }),
+    h(C.TextField, { id: 'make', label: 'Make', defaultValue: 'K', error: 'Enter at least 2 characters.' }));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>
