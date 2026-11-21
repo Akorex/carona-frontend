@@ -9,6 +9,9 @@ import OfferRide from "./pages/OfferRide";
 import FindRide from "./pages/FindRide";
 import SearchResults from "./pages/SearchResults";
 import RideDetail from "./pages/RideDetail";
+import Vehicles from "./pages/Vehicles";
+import AddVehicle from "./pages/AddVehicle";
+import EditVehicle from "./pages/EditVehicle";
 import { DesignLink, DesignRedirect } from "./components/DesignLink";
 
 // Routes from the design system's "Building with Carona" guide.
@@ -28,7 +31,9 @@ export default function App() {
         <Route path="/offer" element={<OfferRide />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile/edit" element={<EditProfile />} />
-        <Route path="/vehicles" element={<ComingSoon active="profile" title="My vehicles" />} />
+        <Route path="/vehicles" element={<Vehicles />} />
+        <Route path="/vehicles/new" element={<AddVehicle />} />
+        <Route path="/vehicles/:id/edit" element={<EditVehicle />} />
         {/* The designs are static pages in public/design/. */}
         <Route path="/design/*" element={<DesignRedirect />} />
         <Route path="*" element={<ComingSoon title="Page not found" notFound />} />

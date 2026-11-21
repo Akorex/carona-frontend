@@ -223,6 +223,16 @@ a:hover { color: var(--brand-strong); }
   .find-main { gap: var(--space-8); padding-top: var(--space-8); }
 }
 
+/* My vehicles and Edit vehicle */
+.vehicles-head {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-4);
+}
+.edit-vehicle__head {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-4);
+}
+.edit-vehicle__head h1 { margin: 0; }
+.cr-field__input:disabled { opacity: 0.6; cursor: not-allowed; }
+
 /* Link to the design pages (public/design/), shown only in dev. See DesignLink.tsx. */
 .cr-design-link {
   position: fixed; left: var(--space-4); bottom: var(--space-4); z-index: 50;

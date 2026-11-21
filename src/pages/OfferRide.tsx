@@ -81,7 +81,7 @@ export default function OfferRide() {
           icon="steering"
           title="Add a vehicle to start driving"
           action={
-            <Link to="/vehicles" className="cr-btn cr-btn--primary cr-btn--md">
+            <Link to="/vehicles/new" state={{ from: "/offer" }} className="cr-btn cr-btn--primary cr-btn--md">
               <Icon name="plus" />
               Add a vehicle
             </Link>

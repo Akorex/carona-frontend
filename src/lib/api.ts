@@ -183,3 +183,39 @@ export async function getMyVehicles(token: string): Promise<Vehicle[]> {
   const res = await request<Envelope<Vehicle[]>>("/vehicles/", { token });
   return res.data;
 }
+
+export type VehicleInput = {
+  make: string;
+  model: string;
+  colour: string;
+  capacity: number;
+  plate_number: string;
+};
+
+export type VehicleChanges = Partial<VehicleInput>;
+
+/** POST /vehicles/ -> the newly registered vehicle. */
+export async function createVehicle(token: string, input: VehicleInput): Promise<Vehicle> {
+  const res = await request<Envelope<Vehicle>>("/vehicles/", {
+    method: "POST",
+    token,
+    body: JSON.stringify(input),
+  });
+  return res.data;
+}
+
+/** GET /vehicles/{id} */
+export async function getVehicle(id: string, token?: string | null): Promise<Vehicle> {
+  const res = await request<Envelope<Vehicle>>(`/vehicles/${encodeURIComponent(id)}`, { token });
+  return res.data;
+}
+
+/** PATCH /vehicles/{id} -> send only the fields that changed. */
+export async function updateVehicle(token: string, id: string, changes: VehicleChanges): Promise<Vehicle> {
+  const res = await request<Envelope<Vehicle>>(`/vehicles/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    token,
+    body: JSON.stringify(changes),
+  });
+  return res.data;
+}
